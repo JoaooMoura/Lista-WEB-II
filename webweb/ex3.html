@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo de Frete</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="ex1.html">Cálculo IMC</a></li>
+                <li><a href="ex2.html">Faixa Etária & Média Ponderada</a></li>
+                <li><a href="ex3.html">Cálculo Frete</a></li>
+                <li><a href="ex4.html">Folha de Pagamento</a></li>
+                <li><a href="ex5.html"></a></li>
+                <li><a href="ex6.html"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Calculadora de Frete</h1>
+        <section>
+            <label for="distancia">Distância (km):</label>
+            <input type="number" id="distancia" min="1" required>
+
+            <label for="quantidade">Quantidade de peças:</label>
+            <input type="number" id="quantidade" min="1" required>
+
+            <label for="regiao">Região:</label>
+            <select id="regiao" required>
+                <option value="">Selecione</option>
+                <option value="1">Sul</option>
+                <option value="2">Sudeste</option>
+                <option value="3">Centro-oeste</option>
+            </select>
+
+            <label for="rastreamento">Deseja rastreamento?</label>
+            <select id="rastreamento" required>
+                <option value="N">Não</option>
+                <option value="S">Sim</option>
+            </select>
+            <p>
+        </section>
+        <button onclick="calculoFrete()">Calcular</button>
+
+        <p id="resultado"></p>
+    </main>
+    <script src="script.js"></script>
+</body>
+
+</html>
