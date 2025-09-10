@@ -43,11 +43,22 @@ header nav ul li {
 header nav ul li a {
   text-decoration: none;
   color: white;
-  font-family: Poppins;
+  font-family: "Poppins", sans-serif;
+  padding: 10px 22px;
+  border-radius: 5px;
+  background: #0800f8;
+  box-shadow: 0 2px 8px rgba(8,0,248,0.08);
+  font-weight: 500;
+  border: 2px solid transparent;
+  display: inline-block;
 }
 
 header nav ul li a:hover {
-  text-decoration: underline;
+  background: #ffffff31;
+  color: white;
+  box-shadow: 0 4px 16px rgba(8,0,248,0.15);
+  border: 2px solid #0800f8;
+  text-decoration: none;
 }
 
 main {
@@ -88,5 +99,18 @@ select {
   border: none;
   background-color: #666;
   color: white;
+  width: 100%;
   cursor: pointer;
 }
+input{
+  padding: 8px;
+  border-radius: 5px;
+  border: none;
+  background-color: #666;
+  color: white;
+  width: 100%;
+  
+}
+::placeholder{
+  color: #ccc;
+  opacity: 1;}

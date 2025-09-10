@@ -151,3 +151,43 @@ function folhaPagamento() {
         Salario Final: R$ ${salarioFinal.toFixed(2)}<br>
     `
 }
+
+function calculo() {
+    let num1 = parseFloat(document.getElementById("num1").value)
+    let num2 = parseFloat(document.getElementById("num2").value)
+    let operacao = document.getElementById("operacao").value
+    let resultado
+    switch (operacao) {
+        case "soma":
+            resultado = num1 + num2
+            break
+        case "subtração":
+            resultado = num1 - num2
+            break
+        default:
+            alert("Operação inválida! Use 'soma' ou 'subtração'.")
+            return
+    }
+    document.getElementById("resultado").innerHTML = `O resultado é: ${resultado}`
+}
+
+function dataExtenso() {
+    let dataInput = document.getElementById("data").value
+    let partesData = dataInput.split("/")
+    let dia = partesData[0]
+    let mes = partesData[1]
+    let ano = partesData[2]
+
+    let meses = [
+        "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
+        "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"
+    ]
+
+    if (partesData.length !== 3 || isNaN(dia) || isNaN(mes) || isNaN(ano) || mes < 1 || mes > 12 || ano.length !== 4) {
+        alert("Data inválida! Use o formato DD/MM/AAAA.")
+        document.getElementById("resultado").innerHTML = "Data inválida. Use o formato DD/MM/AAAA."
+        return
+    }
+
+    document.getElementById("resultado").innerHTML = `Data por extenso: ${dia} de ${meses[mes - 1]} de ${ano}`
+}
