@@ -174,20 +174,34 @@ function calculo() {
 function dataExtenso() {
     let dataInput = document.getElementById("data").value
     let partesData = dataInput.split("/")
-    let dia = partesData[0]
-    let mes = partesData[1]
-    let ano = partesData[2]
+
+    let dia = parseInt(partesData[0])
+    let mes = parseInt(partesData[1])
+    let ano = parseInt(partesData[2])
 
     let meses = [
         "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
         "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"
     ]
 
-    if (partesData.length !== 3 || isNaN(dia) || isNaN(mes) || isNaN(ano) || mes < 1 || mes > 12 || ano.length !== 4) {
+    if (partesData.length !== 3 || isNaN(dia) || isNaN(mes) || isNaN(ano) || mes < 1 || mes > 12 || dia > 31 || dia < 1) {
         alert("Data inválida! Use o formato DD/MM/AAAA.")
         document.getElementById("resultado").innerHTML = "Data inválida. Use o formato DD/MM/AAAA."
         return
     }
 
+    let bissexto = (ano % 400 === 0) || (ano % 4 === 0 && ano % 100 !== 0)
+
+    if (mes == 2) {
+        if ((bissexto && dia > 29) || (!bissexto && dia > 28)){
+            document.getElementById("resultado").innerHTML = "Data inválida. Fevereiro não tem esse dia."
+            return
+        }
+    }
+    else if ((mes === 4 || mes === 6 || mes ===9 || mes === 11) && dia > 30){
+        document.getElementById("resultado").innerHTML = "Data inválida. Esse mês não tem mais de 30 dias."
+        return
+    }
     document.getElementById("resultado").innerHTML = `Data por extenso: ${dia} de ${meses[mes - 1]} de ${ano}`
 }
+
